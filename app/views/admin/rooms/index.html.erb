@@ -1,0 +1,28 @@
+<h2>Manage Rooms</h2>
+<%= link_to "Back to dashboard", admin_dashboard_index_path %>
+<%= link_to "Add New Room", new_admin_room_path %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Capacity</th>
+    <th>Price</th>
+    <th>Available</th>
+    <th style="min-width: 100px;">Actions</th>
+  </tr>
+  <% @rooms.each do |room| %>
+    <tr>
+      <td><%= room.name %></td>
+      <td><%= room.capacity %></td>
+      <td><%= number_to_currency(room.price_per_hour) %></td>
+      <td><%= room.active? ? "Yes" : "No" %></td>
+      <td>
+        <%= link_to "Edit", edit_admin_room_path(room) %> |
+        <%= button_to "Delete",
+            admin_room_path(room),
+            method: :delete,
+            form: { style: "display: inline-block;" },
+            style: "display: inline" %>
+      </td>
+    </tr>
+  <% end %>
+</table>

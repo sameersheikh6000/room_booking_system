@@ -1,0 +1,26 @@
+<h2>All Bookings</h2>
+<%= link_to "Back to dashboard", admin_dashboard_index_path %>
+<table>
+  <tr>
+    <th>Room</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Status</th>
+    <th>Price</th>
+    <th> Actions</th>
+  </tr>
+  <% @bookings.each do |b| %>
+    <tr>
+      <td><%= b.room.name %></td>
+      <td><%= b.start_time %></td>
+      <td><%= b.end_time %></td>
+      <td><%= b.status %></td>
+      <td><%= number_to_currency(b.total_price) %></td>
+      <td>
+        <% if !b.approved? %>
+        <%= button_to "Approve", approve_admin_booking_path(b), method: :post, form: { style: "display: inline-block; margin-left: 5px;" } %>
+      <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

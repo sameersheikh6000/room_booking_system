@@ -1,0 +1,14 @@
+<h2>Admin Dashboard</h2>
+<%= link_to "Manage Rooms", admin_rooms_path %>
+<h3>Recent Bookings</h3>
+<ul>
+  <% @bookings.each do |b| %>
+    <li>
+      <%= b.user.name %> booked <%= b.room.name %> from <%= b.start_time %> to <%= b.end_time %>
+      <% if !b.approved? %>
+        <%= button_to "Approve", approve_admin_booking_path(b), method: :post, form: { style: "display: inline-block; margin-left: 5px;" } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+

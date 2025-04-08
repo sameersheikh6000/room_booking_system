@@ -1,0 +1,16 @@
+<h2>My Bookings</h2>
+<%= link_to "Make Booking", new_booking_path%>
+<ul>
+  <% @bookings.each do |booking| %>
+    <li style="<%= booking.cancelled? ? 'color: red;text-decoration: line-through;' : 'color: green;' %>">
+      Room: <%= booking.room.name %> |
+      From: <%= booking.start_time %> |
+      To: <%= booking.end_time %> |
+      Total: <%= number_to_currency(booking.total_price) %>
+      | <strong><%= booking.status %></strong>
+      <% if booking.confirmed? %>
+      | <%= button_to "Cancel", cancel_booking_path(booking), form: { style: "display: inline-block; margin-left: 5px;" } %>
+      <% end %>
+    </li> <%= booking.refunded_price && "| Refunded $#{booking.refunded_price}" %>
+  <% end %>
+</ul>
