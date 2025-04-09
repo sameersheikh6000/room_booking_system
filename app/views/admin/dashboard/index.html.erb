@@ -1,5 +1,6 @@
 <h2>Admin Dashboard</h2>
-<%= link_to "Manage Rooms", admin_rooms_path %>
+<%= link_to "Manage Rooms", admin_rooms_path %><br/>
+<%= link_to "Manage Bookings", admin_bookings_path %>
 <h3>Recent Bookings</h3>
 <ul>
   <% @bookings.each do |b| %>

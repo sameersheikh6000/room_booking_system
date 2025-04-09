@@ -1,5 +1,8 @@
-<h2>My Bookings</h2>
-<%= link_to "Make Booking", new_booking_path%>
+<div style="display: flex; justify-content: space-between;">
+  <h2>My Bookings</h2>
+  <h5>Greetings! <%= current_user.email.split("@")[0] %></h5>
+</div>
+<%= link_to "Make Booking", new_booking_path %>
 <ul>
   <% @bookings.each do |booking| %>
     <li style="<%= booking.cancelled? ? 'color: red;text-decoration: line-through;' : 'color: green;' %>">

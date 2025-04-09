@@ -5,20 +5,20 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
+* Ruby version 3.2.2
+* Rails 7.2.2
 
 * Database creation
+- rails db:create
 
 * Database initialization
+- ======= rails db:migrate ========
+- ======= rails db:seed ========
 
-* How to run the test suite
+# This will generate Admin user and Rooms
+# Creds
+# email: Admin@example.com
+# password: Admin@123
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
 
 * ...

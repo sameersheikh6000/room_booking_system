@@ -46,4 +46,3 @@ class Admin::RoomsController < ApplicationController
     params.require(:room).permit(:name, :capacity, :price_per_hour, :active)
   end
 end
-

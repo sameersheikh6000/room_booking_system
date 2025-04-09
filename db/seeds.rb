@@ -1,13 +1,20 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
 User.create!(email: "Admin@example.com", password: "Admin@123", password_confirmation: "Admin@123", role: :admin)
-Room.create!(name: "Room A", capacity: 5, price_per_hour: 25, active: true)
-Room.create!(name: "Room B", capacity: 10, price_per_hour: 40, active: true)
+Room.create!(name: "Room A", capacity: 4, price_per_hour: 25, active: true)
+Room.create!(name: "Room B", capacity: 4, price_per_hour: 40, active: true)
+Room.create!(name: "Room C", capacity: 4, price_per_hour: 40, active: true)
+Room.create!(name: "Room D", capacity: 3, price_per_hour: 30, active: true)
+Room.create!(name: "Room E", capacity: 4, price_per_hour: 40, active: true)
+Room.create!(name: "Room F", capacity: 4, price_per_hour: 35, active: true)
+Room.create!(name: "Room G", capacity: 3, price_per_hour: 40, active: true)
+Room.create!(name: "Room H", capacity: 4, price_per_hour: 40, active: true)
+Room.create!(name: "Room I", capacity: 4, price_per_hour: 40, active: true)
+Room.create!(name: "Room J", capacity: 2, price_per_hour: 30, active: true)
+Room.create!(name: "Room K", capacity: 3, price_per_hour: 40, active: true)
+Room.create!(name: "Room L", capacity: 4, price_per_hour: 25, active: true)
+Room.create!(name: "Room M", capacity: 2, price_per_hour: 40, active: true)
+Room.create!(name: "Room N", capacity: 4, price_per_hour: 50, active: true)
+Room.create!(name: "Room O", capacity: 4, price_per_hour: 40, active: true)
+Room.create!(name: "Room P", capacity: 3, price_per_hour: 40, active: true)
+Room.create!(name: "Room Q", capacity: 4, price_per_hour: 30, active: true)
+Room.create!(name: "Room R", capacity: 4, price_per_hour: 40, active: true)
+Room.create!(name: "Room S", capacity: 4, price_per_hour: 40, active: true)

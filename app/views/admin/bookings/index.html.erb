@@ -2,15 +2,17 @@
 <%= link_to "Back to dashboard", admin_dashboard_index_path %>
 <table>
   <tr>
+    <th>#Booking User Email</th>
     <th>Room</th>
     <th>Start</th>
     <th>End</th>
     <th>Status</th>
     <th>Price</th>
-    <th> Actions</th>
+    <th>Actions</th>
   </tr>
   <% @bookings.each do |b| %>
     <tr>
+      <td><strong><%= b.user.email %></strong></td>
       <td><%= b.room.name %></td>
       <td><%= b.start_time %></td>
       <td><%= b.end_time %></td>
@@ -18,8 +20,11 @@
       <td><%= number_to_currency(b.total_price) %></td>
       <td>
         <% if !b.approved? %>
-        <%= button_to "Approve", approve_admin_booking_path(b), method: :post, form: { style: "display: inline-block; margin-left: 5px;" } %>
-      <% end %>
+          <%= button_to "Approve", approve_admin_booking_path(b), method: :post, form: { style: "display: inline-block; margin-left: 5px;" } %>
+        <% end %>
+        <% if b.cancelled? %>
+          <%= button_to "Clear Bookings", admin_booking_path(b), method: :delete, form: { style: "display: inline-block; margin-left: 5px;" } %>
+        <% end %>
       </td>
     </tr>
   <% end %>

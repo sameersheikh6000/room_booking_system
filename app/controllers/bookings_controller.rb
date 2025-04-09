@@ -3,7 +3,11 @@ class BookingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    unless current_user.admin?
     @bookings = current_user.bookings.includes(:room)
+    else
+      redirect_to admin_dashboard_index_path
+    end
   end
 
   def new
@@ -26,7 +30,7 @@ class BookingsController < ApplicationController
       end
     end
 
-    redirect_to bookings_path, notice: "Booking created successfully"
+    redirect_to bookings_path, notice: "Booking created successfully. Admin will approve it soon."
   rescue => e
     redirect_to new_booking_path, alert: "Booking failed: Time Slot not avaliable"
   end

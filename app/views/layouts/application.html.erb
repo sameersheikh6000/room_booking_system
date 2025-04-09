@@ -22,7 +22,9 @@
     <p class="alert"><%= alert %></p>
     <%= yield %>
     <% if user_signed_in? %>
+    <div style="text-align: right; margin: 10px;">
       <%= button_to "Logout", destroy_user_session_path, method: :delete %>
+    </div>
     <% end %>
   </body>
 </html>

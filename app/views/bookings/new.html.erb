@@ -2,7 +2,7 @@
 <%= form_with url: bookings_path, method: :post do %>
   <label>You can select up to 3 rooms:</label><br>
   <% @rooms.each do |room| %>
-    <%= check_box_tag 'room_ids[]', room.id %> <%= room.name %><br>
+    <%= check_box_tag 'room_ids[]', room.id %> <%= room.name %><br/>
   <% end %>
 
   <br>
